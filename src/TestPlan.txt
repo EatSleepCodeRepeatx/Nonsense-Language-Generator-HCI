@@ -1,43 +1,88 @@
-
 Test Plan
 
-Test Case
-
-[passed] generator -g -l lorem
-[passed] generator --library lorem --generate
-[passed] generator --help
-[passed] generator --version
-[passed] generator -g -l anguish --count 11
-[passed] generator -g -l anguish --count 11 -m word
-[passed] generator -g -l anguish --count 11 -m list -t
-[passed] generator -g -l anguish --count 11 -m paragraph -t
-[passed] generator -g -l anguish --count 1  -m
-[passed] generator -g -l anguish --count 11 -m word -t
-[passed] generator -g -l anguish --count 11 -m word -t
-[passed] generator -g -l lorem --count 11 -m word -t
-[passed] generator -g -l lorem --count 2 -m word -t
-[passed] generator -g -l lorem --count 6  --html
-[passed] generator -g -l lorem --count 5 -m word
-[passed] generator -
 
 
-Invalid command line that expected to invoke warming message
-[caught] generator --help --generate
-[caught] generator --library lorem --generate --library anguish
-[caught] generator -g --count
-[caught] generator -g
-[caught] generator --generate --html --outfile out.txt
-[caught] generator -h text
-[caught] generator -v text
-[failed] generator -l text
-[caught] generator --html x
-[caught] generator -g -g
-[caught] generator -g -l  --count 2 -m word -t
-[caught] generator -g  --count 6  --html
-[caught] generator -g -l blah --count 5 -m word
+
+Command line mode test
+
+Help test
+Command - generate -h
+Expected - print out help page. 
+Command - generate -h <options>
+Expected - print out an invalid input message, because help is standalone command 
+Command - generate -h -h
+Expected – print an invalid input message, because of duplicated element
+Command - generate <options> -h
+Expected -  Error message for invalid input, because help is standalone command
+Command - generate <option> -h <option>
+Expected - Error message for invalid input, because help is standalone command
+
+Version test
+Command - generate -v
+Expected - it should print out program version. 
+Command - generate -v <options>
+Expected - It should print out an invalid input message, because version is standalone command 
+Command - generate -v -v
+Expected – It should print an invalid input message, because of duplicated element
+Command - generate <options> -v
+Expected -  Error message for invalid input, because version is standalone command
+Command - generate <option> -v <option>
+Expected - Error message for invalid input, because version is standalone command
 
 
-ps. This test plan doesn't contain any test case for the interactive mode,
-    because there is a configuration problem with Jline, I am unable to
-    solved, so all the written code for the interactive mode have been
-    removed for better readability purpose.
+Library test
+Command - generate -l <library> -g
+Expected -  print generated text
+Command - generate -l <any input other than default library> -g
+Expected –  print error input message, print a message to remind user the incorrect parameter. 
+Command - generate -l <option> <library> -g
+Expected – print error input message, missing parameter
+Command - generate -g -l
+Expected – print error input message
+Outfile test
+Command - generate -o <anything no that is not ends with .txt> -g
+Expected – print error input, invalid file extension  
+Command - generate -g -o
+Expected – print error input, missing parameter
+
+Mode test
+Command - generate -m <mode> -g
+Expected – print a paragraph 
+Command - generate -m <anything other than the specified mode> -g
+Expected – print error input message, incorrect parameter 
+Command - generate -m <options> <mode> -g
+Expected – print error message, invalid parameter 
+Command - generate -g -o
+Expected  - print error input message, no parameter 
+Count test
+Command - generate -c <number> -g
+Expected -  print the text based on the mode and count’s parameter
+Command - generate -c <options> <number> -g
+Expected – print invalid input, missing parameter
+Command - generate -g -c
+Expected – print invalid input , missing parameter
+
+Interactive mode test 
+Generate Test
+Command - generate
+Expected - if generate is entered alone then it will generate words with the default settings. 
+Command - generate <any parameter>
+Expected – Invalid input 
+Help Test
+Command - help
+Expected – print help page 
+Command - help <any parameter>
+Expected – error message, invalid input, help is standalone command
+Set Test
+Command - set <option> <value>
+Expected -  give the command default value, nothing happens
+Command - set <option> <invalid>
+Expected -  invalid input, parameter is unrecognize
+Command - set <command> <value> <command>
+Expected – invalid input, missing parameter  
+Show Test
+Command – show 
+Expected - it will show all the default value of command  
+Command - show <option> <value> <Command>
+Expected - invalid input, missing parameter  
+
