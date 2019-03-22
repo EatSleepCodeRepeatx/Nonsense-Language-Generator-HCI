@@ -1,0 +1,129 @@
+
+
+NAME :
+                  Nonsense-Language-Generator-CLI
+
+
+SYNOPSIS:
+
+                  Generator <options> [--library library] [--outfile outfile] [--c count] [--m mode] [--generate generate]
+                                      [--help help] [--version version] [--html -t]
+                                      [-l library] [-o outfile] [-c count] [-m mode] [-g generate] [-v version]
+                                      [-v version] [-t html]
+
+
+DESCRIPTION:      This program is a tool used in generate the blocks of nonsense text via two built-in libraries, and
+                  generated text might or might be legible to the human reader in some case since all the texts are
+                  completely generate randomly. In term of execution of program, user is able to execute this program
+                  in two different modes, which are command line more and interactive mode respectively. Command line
+                  mode, which is started by default if there isn't special command made by user to enforce the program
+                  to be switch into second mode. The interactive mode is quiet reflexive, when user runs the program
+                  under this mode, user doesn't have to obey as much as syntax rule of language as in the command line
+                  mode, it is relative easy to used.
+
+
+
+
+		          Interactive mode and Command Line Mode
+
+		          Interactive mode is not support following command --generate, --help, --version, argument will be
+                  passed through set command when program is called, and it is easier to be used. For the command line
+                  mode, Although it is executed by default and only runs one time, but user must have to obey certain
+		          rules to make program work smoothly under this mode, every input command user entered must to started
+		          with generator in order to produce appropriate text, user also need to be aware of the standalone
+		          commands, they can't be used with other command, for more information, please refer to option page of
+		          the manuel page.
+
+
+
+OPTIONS:
+
+                 Command Line Mode
+
+
+                 --help, -h                    The command produce a description of the generator program along with
+                                               instruction on how to use different synopsis to generate desired output,
+                                               and what each command can do in the program.
+
+
+                 --version,-v                  The command allows user to check the current version of the application.
+
+
+
+                 --library, -l <library>       The command specifies the source of the nonsense language being generated,
+                                               the default library is lorem, if not anguish is not being called
+
+
+                 --outfile, -o <filename>      This command specifies the output file that the generated text will be
+                                               written to, if this command is not being specified, the generated text
+                                               will be written to console, and output file must to have .txt extension,
+                                               else, the format of output file is not acceptable
+
+
+                 --mode, -m <mode>             This command specifies the output mode of generated language, there are
+                                               three mode are allowed in this program, which are paragraph, word, bullet
+                                               respectively. The mode of language will be set to paragraph if no mode
+                                               are specified
+
+                 --count, -c <count>           This command allows you to specify number of time that you want our program
+                                               to generate the txt, if the count is not defined, then the program will
+                                               assigned a parameter to it by default based on language mode, so 1 for
+                                               paragraph, 3 for word, and 5 for bullet
+
+                 --html, -t                    This command will sorted and enclosed the generated text with HTML format,
+                                               paragraph will be enclosed in <p> tag, <h1> for word, and <ul> and <ui>
+                                               for bullet
+
+
+                 --generate, -g                The command is needed to be included to run the program in the command line
+                                               mode, else, the program will be run in the interactive mode
+
+
+
+                 Interactive mode
+
+                 generate <options>            This command line is same as above, but run in different mode
+
+
+
+                 help                          Same as above
+
+
+
+                 version                       Same as above
+
+                 set<option> <value>           This command allows the user to specify a default value for mode,
+                 		                       count, library,html, and outfile. So when the command is called,
+                 		                       program will automatically write in these value, if you are not
+                 		                       going to specify another value to overwrite it
+
+                 show<option>                  This command allows you to inspect the current value of the command, if
+                 		                       it has one, else, the program will show all the command whose current
+                 		                       value has been defined
+
+
+                 exit, quit                    Exits the program
+
+
+
+
+
+
+BUGS
+                 Tab completion is not working and interactive mode have not been implemented
+
+
+AUTHOR:
+                 Name : Deng Xin Wang
+                 Email: dengxinw@buffalo.edu
+
+
+
+
+
+
+
+
+
+
+

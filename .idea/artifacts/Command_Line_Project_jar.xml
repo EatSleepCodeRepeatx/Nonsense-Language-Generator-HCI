@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Command Line Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Command_Line_Project_jar</output-path>
+    <root id="archive" name="Command Line Project.jar">
+      <element id="module-output" name="Command Line Project" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jline-3.5.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

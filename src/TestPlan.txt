@@ -1,0 +1,43 @@
+
+Test Plan
+
+Test Case
+
+[passed] generator -g -l lorem
+[passed] generator --library lorem --generate
+[passed] generator --help
+[passed] generator --version
+[passed] generator -g -l anguish --count 11
+[passed] generator -g -l anguish --count 11 -m word
+[passed] generator -g -l anguish --count 11 -m list -t
+[passed] generator -g -l anguish --count 11 -m paragraph -t
+[passed] generator -g -l anguish --count 1  -m
+[passed] generator -g -l anguish --count 11 -m word -t
+[passed] generator -g -l anguish --count 11 -m word -t
+[passed] generator -g -l lorem --count 11 -m word -t
+[passed] generator -g -l lorem --count 2 -m word -t
+[passed] generator -g -l lorem --count 6  --html
+[passed] generator -g -l lorem --count 5 -m word
+[passed] generator -
+
+
+Invalid command line that expected to invoke warming message
+[caught] generator --help --generate
+[caught] generator --library lorem --generate --library anguish
+[caught] generator -g --count
+[caught] generator -g
+[caught] generator --generate --html --outfile out.txt
+[caught] generator -h text
+[caught] generator -v text
+[failed] generator -l text
+[caught] generator --html x
+[caught] generator -g -g
+[caught] generator -g -l  --count 2 -m word -t
+[caught] generator -g  --count 6  --html
+[caught] generator -g -l blah --count 5 -m word
+
+
+ps. This test plan doesn't contain any test case for the interactive mode,
+    because there is a configuration problem with Jline, I am unable to
+    solved, so all the written code for the interactive mode have been
+    removed for better readability purpose.
