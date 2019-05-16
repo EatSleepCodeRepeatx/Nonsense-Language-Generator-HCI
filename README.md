@@ -1,5 +1,4 @@
-# Nonsense-Language-Generator-HCI
-# pimpyouride
+# Command-Line-App
 
 ## Project setup
 ```
