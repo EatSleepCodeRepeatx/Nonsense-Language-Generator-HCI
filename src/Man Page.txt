@@ -1,7 +1,7 @@
 
 
 NAME :
-                  Nonsense-Language-Generator-CLI
+                  Command-Line-App
 
 
 SYNOPSIS:
